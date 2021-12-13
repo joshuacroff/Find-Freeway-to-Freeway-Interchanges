@@ -70,11 +70,6 @@ This step also outputs the valid freeway to freeway interchange results as a csv
 
 Results are visualized on an interactive map using the Folium library. The results are also saved as a html and [hosted on a github site for exploration](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map). 
 
-### Potential Issues
-
-In many cases, interchange nodes are identified that may not be desired or valid. These are cases mostly caused by on and off ramps which connect as shown below. If this is undesired, a solution may be to add a unique identifier to the freeway so that if a ramp connects from a freeway to itself, that it would not be considered a valid interchange. Another possible solution would be to filter ramps out that connect to a facility type other than freeway or ramp. 
-
-![img](img/potential_false_interchange.png)
 
 ### Inputs
 
@@ -85,6 +80,12 @@ Simple Network CSV (Private Link)
 - [Freeway Interchanges CSV](freeway_interchanges.csv)
 - [Freeway Interchanges GeoJSON (EPSG:4326)](freeway_interchanges.geojson)
 - [Interactive Map of Freeway Interchanges and Freeway Ramp Network](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map)
+
+### Potential Issues and Improvements
+
+In many cases, interchange nodes are identified that may not be desired or valid. These are cases mostly caused by on and off ramps which connect as shown below. If this is undesired, a solution may be to add a unique identifier to the freeway so that if a ramp connects from a freeway to itself, that it would not be considered a valid interchange. Another possible solution would be to filter ramps out that connect to a facility type other than freeway or ramp. 
+
+![img](img/potential_false_interchange.png)
 
 
  
