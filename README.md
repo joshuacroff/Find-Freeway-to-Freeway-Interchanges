@@ -33,10 +33,17 @@ The script should outputa csv file with a single column listing all freeway-to-f
 ### Methodology
 
 1. Create network geodataframe
+
+For this step, one function was defined called `create_network_geodataframe(file_path,crs=2230)`. The function accepts a csv and returns a geodataframe with a default coordinate reference system of [EPSG 2230](https://epsg.io/2230).  
+
+
 2. Find intersections using geopandas overlay
+
+For this step, one function was defined called `find_freeway_network_interchanges(freeway_nw_gdf,ramp_nw_gdf)`. The function accepts two network datasets: a freeway network dataset and a ramp dataset and returns a geodataframe with only point geometries. The intersections data is filtered to include only point geometries, and to only include interchanges with are either the end of a ramp or the start of a ramp. Ramp types are also added. Ramps are classified as 'on' ramp if A_1 = B_2, and 'off' if B_1 = A_2. 
+
 3. Determine if a intersection node is a freeway to freeway node
 
-For this step, two functionions were was created called `is_node_connected_to_freeway(row,nw_gdf)` and `flag_freeway_interchanges(interchanges,freeway_nw_gdf)`. 
+For this step, two functions were was created called `is_node_connected_to_freeway(row,nw_gdf)` and `flag_freeway_interchanges(interchanges,freeway_nw_gdf)`. 
 
 **`is_node_connected_to_freeway(row,nw_gdf)`**
 
@@ -45,12 +52,12 @@ This function uses recusion to traverse the freeway network, using an interchang
 The network is traversed backwards or forwards depending on ramp direction. If "on", the function looks backwards at network links using the interchange node 'A' as the starting point. If the ramp direction is "off", the function looks forward using the interchange node 'B' as the starting point. 
 
 Base cases include the following:
-1. Check if ramp is connected to any other links. Return False if not, meaning that the link is not connected to a freeway. 
-2. If ramp is connected to another link, check the link facility type. If 'FT' == 1, return True meaning that the ramp link is an freeway interchange. 
-3. If ramp is not connected to another ramp link of 'FT' == 3, return False meaning that the ramp link is not a freeway interchange. 
+A. Check if ramp is connected to any other links. Return False if not, meaning that the link is not connected to a freeway. 
+B. If ramp is connected to another link, check the link facility type. If 'FT' == 1, return True meaning that the ramp link is an freeway interchange. 
+C. If ramp is not connected to another ramp link of 'FT' == 3, return False meaning that the ramp link is not a freeway interchange. 
     
 Recursive case includes the following:
-1. If the ramp is connected to another ramp link, check all ramp links (backwards if on ramp, forward if off) using recusion to determine if they are connected to a freeway and return True if connected to a freeway link. Also uses a list to remember which links were already looked at. Solves for cases where ramp link is both an on ramp and an off ramp and cases where off ramp and on ramp links intersect, which would cause an infinate looping backwards or forwards.
+ If the ramp is connected to another ramp link, check all ramp links (backwards if on ramp, forward if off) using recusion to determine if they are connected to a freeway and return True if connected to a freeway link. Also uses a list to remember which links were already looked at. Solves for cases where ramp link is both an on ramp and an off ramp and cases where off ramp and on ramp links intersect, which would cause an infinate looping backwards or forwards.
 
 **`flag_freeway_interchanges(interchanges,freeway_nw_gdf)`**
 
