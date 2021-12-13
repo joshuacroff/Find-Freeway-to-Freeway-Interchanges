@@ -72,7 +72,7 @@ Results are visualized on an interactive map using the Folium library. The resul
 
 ### Potential Issues
 
-In many cases, interchange nodes are identified that may not be desired or valid. These are cases mostly caused by on and off ramps which connect as shown below. If this is undesired, a solution may be to add a unique identifier to the highway so that if a ramp connects from a highway to itself, that it would not be considered a valid interchange. Another possible solution would be to Filter ramps out that connect to a facility type other than freeway or ramp. 
+In many cases, interchange nodes are identified that may not be desired or valid. These are cases mostly caused by on and off ramps which connect as shown below. If this is undesired, a solution may be to add a unique identifier to the freeway so that if a ramp connects from a freeway to itself, that it would not be considered a valid interchange. Another possible solution would be to filter ramps out that connect to a facility type other than freeway or ramp. 
 
 ![img](img/potential_false_interchange.png)
 
