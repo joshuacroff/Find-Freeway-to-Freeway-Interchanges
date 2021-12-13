@@ -2,6 +2,13 @@
 
 Locate freeway to freeway interchanges. 
 
+- [Problem Statement](#problem-statement)
+- [Solution](#solution)
+	- [Methodology](#methodology)
+	- [Inputs](#inputs)
+	- [Outputs](#outputs)
+	- [Potential Issues and Improvements](#potential-issues-and-improvements)
+
 ## Problem Statement
 
 You are given a simplified version of a travel model network of the Bay Area. This network is made up of links and nodes. Each link can be uniquely identified by its A node and B node, with traffic flowing from A to B. Each link is also characterized by its facility type (FT). The facility type definitions are shown in the table below:
