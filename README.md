@@ -30,6 +30,35 @@ The script should outputa csv file with a single column listing all freeway-to-f
 
 [Find Freeway Interchanges](Find_Freeway_Interchanges.ipynb)
 
+### Methodology
+
+1. Create network geodataframe
+2. Find intersections using geopandas overlay
+3. Determine if a intersection node is a freeway to freeway node
+
+For this step, two functionions were was created called `is_node_connected_to_freeway(row,nw_gdf)` and `flag_freeway_interchanges(interchanges,freeway_nw_gdf)`. 
+
+**`is_node_connected_to_freeway(row,nw_gdf)`**
+This function uses recusion to traverse the freeway network, using an interchange node geodataframe. The function takes accepts a row as a parameter from the interchange dataset, using the 'RAMP_TYPE' attribute to determine the direction of the ramp. 
+
+The network is traversed backwards or forwards depending on ramp direction. If "on", the function looks backwards at network links using the interchange node 'A' as the starting point. If the ramp direction is "off", the function looks forward using the interchange node 'B' as the starting point. 
+
+Base cases include the following:
+1. Check if ramp is connected to any other links. Return False if not, meaning that the link is not connected to a freeway. 
+2. If ramp is connected to another link, check the link facility type. If 'FT' == 1, return True meaning that the ramp link is an freeway interchange. 
+3. If ramp is not connected to another ramp link of 'FT' == 3, return False meaning that the ramp link is not a freeway interchange. 
+    
+Recursive case includes the following:
+1. If the ramp is connected to another ramp link, check all ramp links (backwards if on ramp, forward if off) using recusion to determine if they are connected to a freeway and return True if connected to a freeway link. Also uses a list to remember which links were already looked at. Solves for cases where ramp link is both an on ramp and an off ramp and cases where off ramp and on ramp links intersect, which would cause an infinate looping backwards or forwards.
+
+**`flag_freeway_interchanges(interchanges,freeway_nw_gdf)`**
+This function iterates over the interchange geodatagrame created in previous steps, and passes rows to the `is_node_connected_to_freeway(row,nw_gdf)` function as well as the network geodataframe created in previous steps. The function returns a geodataframe containing a flagged column indicating whether or not the interchange is a valid freeway to freeway interchange. 
+
+This step also outputs the valid freeway to freeway interchange results as a csv with one column, which is a wkt geography column. [See Outputs](#outputs)
+
+4. Visualize Results
+Results are visualized on an interactive map using the Folium library. The results are also saved as a html and [hosted on a github site for exploration](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map). 
+
 ### Inputs
 
 [Simple Network CSV](simple_network.csv)
