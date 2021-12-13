@@ -52,9 +52,9 @@ This function uses recusion to traverse the freeway network, using an interchang
 The network is traversed backwards or forwards depending on ramp direction. If "on", the function looks backwards at network links using the interchange node 'A' as the starting point. If the ramp direction is "off", the function looks forward using the interchange node 'B' as the starting point. 
 
 Base cases include the following:
-A. Check if ramp is connected to any other links. Return False if not, meaning that the link is not connected to a freeway. 
-B. If ramp is connected to another link, check the link facility type. If 'FT' == 1, return True meaning that the ramp link is an freeway interchange. 
-C. If ramp is not connected to another ramp link of 'FT' == 3, return False meaning that the ramp link is not a freeway interchange. 
+- Check if ramp is connected to any other links. Return False if not, meaning that the link is not connected to a freeway. 
+- If ramp is connected to another link, check the link facility type. If 'FT' == 1, return True meaning that the ramp link is an freeway interchange. 
+- If ramp is not connected to another ramp link of 'FT' == 3, return False meaning that the ramp link is not a freeway interchange. 
     
 Recursive case includes the following:
  If the ramp is connected to another ramp link, check all ramp links (backwards if on ramp, forward if off) using recusion to determine if they are connected to a freeway and return True if connected to a freeway link. Also uses a list to remember which links were already looked at. Solves for cases where ramp link is both an on ramp and an off ramp and cases where off ramp and on ramp links intersect, which would cause an infinate looping backwards or forwards.
