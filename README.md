@@ -4,7 +4,7 @@ Locate freeway to freeway interchanges.
 
 ## Problem Statement
 
-You are given a simplified version of a travel model network of the Bay Area. Thisnetwork is made up of links and nodes. Each link can beuniquely identified by itsA node and B node, with trafficflowing from A to B. Each link is also characterized by itsfacility type (FT). The facility type definitions are shown in the table below:
+You are given a simplified version of a travel model network of the Bay Area. This network is made up of links and nodes. Each link can be uniquely identified by its A node and B node, with traffic flowing from A to B. Each link is also characterized by its facility type (FT). The facility type definitions are shown in the table below:
 
 |Facility Type    |FT   |
 |-----------------|-----|
@@ -69,6 +69,12 @@ This step also outputs the valid freeway to freeway interchange results as a csv
 4. Visualize Results
 
 Results are visualized on an interactive map using the Folium library. The results are also saved as a html and [hosted on a github site for exploration](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map). 
+
+### Potential Issues
+
+In many cases, interchange nodes are identified that may not be desired or valid. These are cases mostly caused by on and off ramps which connect as shown below. If this is undesired, a solution may be to add a unique identifier to the highway so that if a ramp connects from a highway to itself, that it would not be considered a valid interchange. Another possible solution would be to Filter ramps out that connect to a facility type other than freeway or ramp. 
+
+![img](img/potential_false_interchange.png)
 
 ### Inputs
 
