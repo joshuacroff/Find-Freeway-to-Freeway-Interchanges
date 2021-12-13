@@ -66,6 +66,7 @@ This function iterates over the interchange geodatagrame created in previous ste
 This step also outputs the valid freeway to freeway interchange results as a csv with one column, which is a wkt geography column. [See Outputs](#outputs)
 
 4. Visualize Results
+
 Results are visualized on an interactive map using the Folium library. The results are also saved as a html and [hosted on a github site for exploration](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map). 
 
 ### Inputs
