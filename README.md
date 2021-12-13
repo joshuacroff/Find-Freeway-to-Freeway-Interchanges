@@ -77,7 +77,7 @@ Results are visualized on an interactive map using the Folium library. The resul
 ### Outputs
 
 - [Freeway Interchanges CSV](freeway_interchanges.csv)
-- [Freeway Interchanges GeoJSON](freeway_interchanges.geojson)
+- [Freeway Interchanges GeoJSON (EPSG:4326)](freeway_interchanges.geojson)
 - [Interactive Map of Freeway Interchanges and Freeway Ramp Network](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map)
 
 
