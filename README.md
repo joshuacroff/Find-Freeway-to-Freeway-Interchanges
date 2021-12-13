@@ -26,5 +26,19 @@ The script should outputa csv file with a single column listing all freeway-to-f
 - Are the results accurate?
 - Is the code easy to read and maintain?
 
+## Solution
+
+[Find Freeway Interchanges](Find_Freeway_Interchanges.ipynb)
+
+### Inputs
+
+[Simple Network CSV](simple_network.csv)
+
+### Outputs
+
+- [Freeway Interchanges CSV](freeway_interchanges.csv)
+- [Freeway Interchanges GeoJSON](freeway_interchanges.geojson)
+- [Interactive Map of Freeway Interchanges and Freeway/Ramp Network](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map)
+
 
  
