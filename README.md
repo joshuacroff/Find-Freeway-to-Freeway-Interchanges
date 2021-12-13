@@ -72,7 +72,7 @@ Results are visualized on an interactive map using the Folium library. The resul
 
 ### Inputs
 
-[Simple Network CSV](simple_network.csv)
+Simple Network CSV (Private Link)
 
 ### Outputs
 
