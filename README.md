@@ -61,6 +61,7 @@ The network is traversed backwards or forwards depending on ramp direction. If "
 Base cases include the following:
 - Check if ramp is connected to any other links. Return False if not, meaning that the link is not connected to a freeway. 
 - If ramp is connected to another link, check the link facility type. If 'FT' == 1, return True meaning that the ramp link is an freeway interchange. 
+- If connected to a link other than freeway or ramp, return false.
 - If ramp is not connected to another ramp link of 'FT' == 3, return False meaning that the ramp link is not a freeway interchange. 
     
 Recursive case includes the following:
@@ -90,11 +91,10 @@ Simple Network CSV (Private Link)
 
 ### Potential Issues and Improvements
 
-In many cases, interchange nodes are identified that may not be desired or valid. These are cases mostly caused by on and off ramps which connect as shown below. If this is undesired, a solution may be to add a unique identifier to the freeway so that if a ramp connects from a freeway to itself, that it would not be considered a valid interchange. Another possible solution would be to filter ramps out that connect to a facility type other than freeway or ramp. 
+In some cases, interchange nodes are identified that may not be desired or valid. These are cases mostly caused by on and off ramps which connect as shown below. If this is undesired, a solution may be to add a unique identifier to the freeway so that if a ramp connects from a freeway to itself, that it would not be considered a valid interchange. 
 
 ![img](img/potential_false_interchange.png)
 
-![img](img/potential_issue_two.png)
 
 
 
