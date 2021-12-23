@@ -35,7 +35,7 @@ The script should outputa csv file with a single column listing all freeway-to-f
 
 ## Solution
 
-[Find Freeway Interchanges](Find_Freeway_Interchanges.ipynb)
+[Find Freeway Interchanges](https://nbviewer.org/github/joshuacroff/MTC-Modeling-Code-Challenge/blob/main/Find_Freeway_Interchanges.ipynb)
 
 ### Methodology
 
