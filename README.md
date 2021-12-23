@@ -35,7 +35,7 @@ The script should outputa csv file with a single column listing all freeway-to-f
 
 ## Solution
 
-[Find Freeway Interchanges](https://nbviewer.org/github/joshuacroff/MTC-Modeling-Code-Challenge/blob/main/Find_Freeway_Interchanges.ipynb)
+[Find Freeway Interchanges](https://nbviewer.org/github/joshuacroff/Find-freeway-to-Freeway-Interchanges/blob/main/Find_Freeway_Interchanges.ipynb)
 
 ### Methodology
 
@@ -76,7 +76,7 @@ This step also outputs the valid freeway to freeway interchange results as a csv
 
 4. Visualize Results
 
-Results are visualized on an interactive map using the Folium library. The results are also saved as a html and [hosted on a github site for exploration](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map). 
+Results are visualized on an interactive map using the Folium library. The results are also saved as a html and [hosted on a github site for exploration](https://joshuacroff.github.io/Find-Freeway-to-Freeway-Interchanges/network_interactive_map). 
 
 
 ### Inputs
