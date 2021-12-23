@@ -87,7 +87,7 @@ Simple Network CSV (Private Link)
 
 - [Freeway Interchanges CSV](freeway_interchanges.csv)
 - [Freeway Interchanges GeoJSON (EPSG:4326)](freeway_interchanges.geojson)
-- [Interactive Map of Freeway Interchanges and Freeway Ramp Network](https://joshuacroff.github.io/MTC-Modeling-Code-Challenge/network_interactive_map)
+- [Interactive Map of Freeway Interchanges and Freeway Ramp Network](https://joshuacroff.github.io/Find-Freeway-to-Freeway-Interchanges/network_interactive_map)
 
 ### Potential Issues and Improvements
 
